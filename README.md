@@ -79,12 +79,4 @@ npm run lint   # análisis estático con ESLint
 - Tests unitarios/integración (store + UI)
 - Deploy público en Vercel con URL en este README
 
-## Perfil del proyecto (para reclutadores)
 
-Proyecto ideal para demostrar:
-
-- fundamentos sólidos de React/Next.js,
-- modelado de estado global en frontend,
-- persistencia cliente con enfoque pragmático,
-- organización de código escalable por dominios,
-- base preparada para evolucionar a checkout real.
