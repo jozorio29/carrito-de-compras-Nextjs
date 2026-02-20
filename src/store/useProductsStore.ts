@@ -4,7 +4,7 @@ import { create } from "zustand";
 interface State {
   products: Product[];
   isLoading: boolean;
-  error: any;
+  error: string | null;
 }
 
 interface Actions {
@@ -25,10 +25,15 @@ export const useProductsStore = create<State & Actions>((set) => ({
     try {
       set({ isLoading: true, error: null });
       const response = await fetch("https://dummyjson.com/products");
+      if (!response.ok) {
+        throw new Error("Failed to fetch products");
+      }
       const data = await response.json();
       set({ products: data.products, isLoading: false });
-    } catch (error) {
-      set({ error, isLoading: false });
+    } catch (error: unknown) {
+      const errorMessage =
+        error instanceof Error ? error.message : "Unknown error";
+      set({ error: errorMessage, isLoading: false });
     }
   },
 }));

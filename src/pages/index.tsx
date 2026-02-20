@@ -8,7 +8,7 @@ import { useEffect, useState } from "react";
 export default function Home() {
   const [isDrawerOpen, setIsDrawerOpen] = useState(false);
 
-  const { products, isLoading, error, fetchData } = useProductsStore();
+  const { products, isLoading, fetchData } = useProductsStore();
 
   useEffect(() => {
     fetchData();
